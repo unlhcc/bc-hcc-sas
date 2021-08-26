@@ -9,14 +9,12 @@
 # Clean the environment
 module purge
 
-# Set working directory to home directory
-cd "${HOME}"
-
 #
 # Launch Xfce Window Manager and Panel
 #
 
 (
+  cd ${HOME}
   export SEND_256_COLORS_TO_REMOTE=1
   export XDG_CONFIG_HOME="<%= session.staged_root.join("config") %>"
   export XDG_DATA_HOME="<%= session.staged_root.join("share") %>"
@@ -33,14 +31,17 @@ cd "${HOME}"
   xfdesktop --sm-client-disable &
 ) &
 
+# Start the modified rbrowser
+bin/rbrowser &
+
 #
 # Start SAS
-#
-
+# Set working directory to home directory
+cd "${HOME}"
 # Load the required environment
 module load <%= context.sas_version %>
 
 # Launch SAS
 module list
 set -x
-sas
+sas -helpport ${rbrowser_port}

@@ -51,8 +51,8 @@ batch_connect:
     export PS1="[\u@\h \W]\$ "
     BASE
     chmod +x /tmp/99-base.sh
-    export SINGULARITY_BINDPATH="/home,/work,/common,/util,/media,/mnt,/srv,/var/run,/run,/tmp/99-base.sh:/.singularity.d/env/99-base.sh:ro"
-    singularity exec -B ${TMPDIR}:/tmp <%= image %> /bin/bash container.sh
+    export SINGULARITY_BINDPATH="${TMPDIR}:/tmp,/home,/work,/common,/util,/media,/mnt,/srv,/var/run,/run,/tmp/99-base.sh:/.singularity.d/env/99-base.sh:ro"
+    singularity exec <%= image %> /bin/bash container.sh
 
 script:
   # Slurm option is mem, memory is passed from the form

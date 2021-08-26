@@ -1,2 +1,15 @@
 # Export the module function if it exists
 [[ $(type -t module) == "function" ]] && export -f module
+
+# Get a free random port and write the rbrowser config file
+export rbrowser_port=$(find_port)
+cat << RBROWSER > .rbrowser
+browserPath=firefox
+browserPause=5
+port=${rbrowser_port}
+accessListCount=0
+accessListType=0
+RBROWSER
+
+# The rbrowser binary has been modified to look in $RBRB for the config file
+export RBRB=${PWD}
