@@ -10,9 +10,9 @@ begin
     rhel_version = output.strip.to_s
     case rhel_version
     when "7"
-      image = "/work/HCC/SINGULARITY/IMAGES/xfce_el7_sas.sif"
+      image = "/work/HCC/SINGULARITY/IMAGES/xfce_el7.sif"
     when "8"
-      image = "/work/HCC/SINGULARITY/IMAGES/xfce_el8_sas.sif"
+      image = "/work/HCC/SINGULARITY/IMAGES/xfce_el8.sif"
     end
   else
     raise output
