@@ -14,11 +14,11 @@ This Batch Connect app requires the following software be available on the
 OnDemand node):
 
 - [SAS]
-- [Singularity]
+- [Apptainer]
 - [Lmod]
 
 [SAS]: https://www.sas.com/en_us/home.html
-[Singularity]: https://sylabs.io/singularity/
+[Apptainer]: https://apptainer.org
 [Xfce Desktop]: https://xfce.org/
 [Lmod]: https://www.tacc.utexas.edu/research-development/tacc-projects/lmod
 
